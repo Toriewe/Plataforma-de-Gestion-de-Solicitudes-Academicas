@@ -1,3 +1,32 @@
 .container {
     padding: 1.25rem;
+    text-align: center;
+}
+
+h1 {
+    width: 100%;
+}
+.botones {
+    display: flex;
+    padding: 20px 0px;
+    justify-content: space-evenly;
+}
+
+.botonR{
+    width: 30%;
+}
+
+.botonS{
+    width: 30%;
+}
+
+button {
+    width: 160px;
+    height: 40px;
+}
+
+button:hover {
+    background-color: #3c1330;
+    color: #e3b3d7;
+    transition: 0.3s;
 }
