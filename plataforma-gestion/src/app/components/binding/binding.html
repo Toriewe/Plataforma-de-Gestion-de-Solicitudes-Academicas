@@ -1,8 +1,8 @@
 <section>
-    <input type="text" [value]="productoNom">
+    <input [(ngModel)]="productoNom">
 </section>
 
-<button [disabled]="seleccion" (click)="seleccionar()">Seleccionar</button>
+<button [disabled]="!productoNom" (click)="seleccionar()">Seleccionar</button>
 
 @if(seleccion){
     <p>Producto seleccionado: {{ productoNom }}</p>

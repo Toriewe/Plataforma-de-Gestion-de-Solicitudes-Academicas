@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-binding',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './binding.html',
 })
 export class Binding {
-  productoNom = 'algo';
+  productoNom = '';
   seleccion =  true;
 
   seleccionar(): void{
