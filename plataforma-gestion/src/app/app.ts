@@ -1,8 +1,11 @@
 import { Component, signal } from '@angular/core';
+import { Header } from './components/header/header';
+import { Interpolacion } from './components/interpolacion/interpolacion';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  standalone: true,
+  imports: [Header, Interpolacion],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
