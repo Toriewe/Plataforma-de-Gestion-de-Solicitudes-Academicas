@@ -31,6 +31,13 @@ button:disabled {
     opacity: 0.55;
 }
 
+input{
+    height: 25px;
+    padding: 0px 8px;
+    border: 1px solid #8b9cafcc;
+    border-radius: 4px;
+}
+
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
