@@ -1,3 +1,28 @@
 <app-header></app-header>
 
-<p>solicitudes works!</p>
+<div class="container">
+    <h1>Solicitudes académicas</h1>
+    <div class="tabla">
+        <table>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Estado</th>
+                <th>Celular</th>
+            </tr>
+            @for (dato of datos; track dato.id){
+            <tr>
+                <td>{{ dato.nombre }}</td>
+                <td>{{ dato.apellido }}</td>
+                <td>@if (dato.estado) {
+                    Activo
+                    } @else {
+                    Inactivo
+                    }
+                </td>
+                <td>{{ dato.celular }}</td>
+            </tr>
+            }
+        </table>
+    </div>
+</div>

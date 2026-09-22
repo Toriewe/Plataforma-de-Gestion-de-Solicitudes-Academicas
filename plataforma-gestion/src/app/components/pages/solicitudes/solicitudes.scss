@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.25rem 5rem;
+}
+
+table {
+    margin-top: 20px;
+    width: 700px;
+    border-radius: 5px;
+}
+
+th, td {
+    padding: 7px 10px;
+}
+
+th {
+    background-color: #630045;
+    color: white;
+}
+
+tr:nth-child(odd) {
+    background-color: #ffddf9;
+    transition: 1s;
+}
