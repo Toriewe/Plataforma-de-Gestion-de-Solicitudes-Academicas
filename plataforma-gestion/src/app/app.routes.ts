@@ -6,6 +6,10 @@ import { Registro } from './components/pages/registro/registro';
 
 export const routes: Routes = [
     {
+        path: '', redirectTo: 'inicio', pathMatch: 'full'
+    },
+    
+    {
         path: 'inicio',
         component: Inicio
     },

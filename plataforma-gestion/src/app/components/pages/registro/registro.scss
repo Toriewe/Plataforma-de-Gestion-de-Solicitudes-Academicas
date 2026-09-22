@@ -1,0 +1,37 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1.25rem 5rem;
+    background-color: #e2c7e6;
+    border-radius: 12px;
+}
+
+
+.form {
+    width: 60%;
+    padding: 15px;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input {
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
+#enviar {
+    align-self: center;
+    width: 130px;
+    height: 35px;
+    font-weight: bold;
+}
+
+#enviar:disabled {
+    cursor: not-allowed;
+}

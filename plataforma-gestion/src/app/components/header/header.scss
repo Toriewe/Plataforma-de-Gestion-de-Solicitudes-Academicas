@@ -1,10 +1,20 @@
 .header{
-    padding: 1.25rem;
-    border-radius: 12px;   
-    background: #13213c;
+    display: flex;
+    padding: 1.25rem; 
+    background: #3c1330;
     color: white;
 }
 
-.header p{
-    margin-bottom:0;
+.container {
+    display: flex;
+    width: 30%;
+    margin-left: 130px;
+    justify-content: end;
+    align-items: center;
+}
+
+.container button{
+    height: 50px;
+    width: 150px;
+    font-weight: bold;
 }

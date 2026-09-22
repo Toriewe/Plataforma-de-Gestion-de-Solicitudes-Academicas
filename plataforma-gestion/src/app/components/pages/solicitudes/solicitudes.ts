@@ -3,6 +3,7 @@ import { Header } from '../../header/header';
 
 @Component({
   selector: 'app-solicitudes',
+  standalone: true,
   imports: [Header],
   templateUrl: './solicitudes.html',
   styleUrl: './solicitudes.scss',
