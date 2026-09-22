@@ -1,1 +1,9 @@
-<p>binding works!</p>
+<section>
+    <input type="text" [value]="productoNom">
+</section>
+
+<button [disabled]="seleccion" (click)="seleccionar()">Seleccionar</button>
+
+@if(seleccion){
+    <p>Producto seleccionado: {{ productoNom }}</p>
+}

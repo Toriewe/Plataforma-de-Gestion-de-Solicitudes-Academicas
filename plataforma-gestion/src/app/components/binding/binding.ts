@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   templateUrl: './binding.html',
 })
 export class Binding {
+  productoNom = 'algo';
+  seleccion =  true;
 
+  seleccionar(): void{
+    this.seleccion = true;
+  }
 }
