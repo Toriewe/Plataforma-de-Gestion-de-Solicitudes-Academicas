@@ -6,20 +6,28 @@
         <form [formGroup]="formulario" (ngSubmit)="registrar()">
             <label for="nombre">Nombre: </label>
             <input type="text" id="nombre" formControlName="nombre">
+            @if (formulario.controls.nombre.invalid && formulario.controls.nombre.touched) {
+            <p>El nombre es obligatorio.</p>}
 
             <label for="apellido">Apellido: </label>
             <input type="text" id="apellido" formControlName="apellido">
+            @if (formulario.controls.apellido.invalid && formulario.controls.apellido.touched) {
+            <p>El apellido es obligatorio.</p>}
 
             <label for="estado">Estado: </label>
             <input type="checkbox" formControlName="estado">
 
             <label for="celular">Celular: </label>
             <input type="text" id="celular" formControlName="celular" inputmode="numeric" maxlength="9">
+                @if (formulario.controls.celular.hasError('required') && formulario.controls.celular.touched) {
+                <p>El celular es obligatorio.</p>}
 
-            @if(formulario.invalid){
-                <p>Formulario inválido, datos incorrectos</p>
-            }
-            <input type="submit" id="enviar" value="Registrar" [disabled]="formulario.invalid">
+                @if (formulario.controls.celular.hasError('pattern') && formulario.controls.celular.touched) {
+                <p>El celular debe tener exactamente 9 dígitos.</p>}
+
+                @if(formulario.invalid){
+                <p>Formulario inválido, datos incorrectos</p>} 
+            <input type="submit" id="enviar" value="Registrar"[disabled]="formulario.invalid">
             
         </form>
     </div>

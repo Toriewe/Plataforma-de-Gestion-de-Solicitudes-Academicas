@@ -30,18 +30,21 @@ export class Registro {
 
   registrar() {
 
-    const nuevoDato = {
-      nombre: this.formulario.value.nombre!,
-      apellido: this.formulario.value.apellido!,
-      estado: this.formulario.value.estado!,
-      celular: this.formulario.value.celular!
-    };
+  if (this.formulario.invalid){
+    return;
+  }
 
-    this.solicitud.guardarDatos(nuevoDato).subscribe({
-      next: (respuesta) => {
+  const nuevoDato = {
+    nombre: this.formulario.value.nombre!,
+    apellido: this.formulario.value.apellido!,
+    estado: this.formulario.value.estado!,
+    celular: this.formulario.value.celular!
+  };
 
-        this.router.navigate(['/solicitudes']);
-      }
-    });
+  this.solicitud.guardarDatos(nuevoDato).subscribe({
+    next: (respuesta) => {
+      this.router.navigate(['/solicitudes']);
+    }
+  });
   }
 }
