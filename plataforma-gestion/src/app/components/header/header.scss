@@ -1,27 +1,61 @@
-.header{
-    display: flex;
-    padding: 1.1rem; 
-    background: #3c1330;
+.header {
+    background: #91623d;
     color: white;
+    padding: 1rem 2rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
 }
 
-.container {
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
-    width: 30%;
-    margin-left: 130px;
-    justify-content: end;
+    justify-content: space-between;
     align-items: center;
+    gap: 2rem;
 }
 
-button:hover{
-    background-color: #3c1330;
-    border: 1px solid #e3b3d7;
-    color: white;
-    transition: 0.3s;
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
-.container button{
-    height: 50px;
-    width: 150px;
+.brand-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: #b36205;
+    color: #faf5f8;
     font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.brand h1 {
+    margin: 0;
+    font-size: 1.35rem;
+}
+
+.brand p {
+    margin: 0.25rem 0 0;
+    color: #cfc205;
+    font-size: 0.85rem;
+}
+
+.home-button {
+    padding: 0.75rem 1.5rem;
+    border: 1px solid #e2dce1;
+    border-radius: 8px;
+    background: transparent;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.home-button:hover {
+    background: #dad4d8;
+    color: #3c1330;
 }

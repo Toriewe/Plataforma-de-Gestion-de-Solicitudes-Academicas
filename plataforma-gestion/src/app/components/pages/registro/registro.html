@@ -25,7 +25,7 @@
                 @if (formulario.controls.celular.hasError('pattern') && formulario.controls.celular.touched) {
                 <p>El celular debe tener exactamente 9 dígitos.</p>}
 
-                @if(formulario.invalid){
+                @if(formulario.invalid) {
                 <p>Formulario inválido, datos incorrectos</p>} 
             <input type="submit" id="enviar" value="Registrar"[disabled]="formulario.invalid">
             
