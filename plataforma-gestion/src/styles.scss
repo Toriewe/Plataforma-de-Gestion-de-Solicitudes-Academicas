@@ -13,11 +13,6 @@ button {
     cursor: pointer;
 }
 
-button:disabled {
-    cursor: not-allowed;
-    opacity: 0.55;
-}
-
 input{
     height: 35px;
     padding: 0px 8px;

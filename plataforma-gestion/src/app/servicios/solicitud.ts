@@ -15,7 +15,7 @@ export class Solicitud {
     return this.http.get<Datos[]>(this.apiUrl);
   }
 
-  guardarDatos(dato: Datos): Observable<Datos> {
+  guardarDatos(dato: Omit<Datos, 'id'>): Observable<Datos> {
     return this.http.post<Datos>(this.apiUrl, dato);
   }
 }

@@ -1,7 +1,7 @@
 export interface Datos {
-    id: number;
+    id: number | string;
     nombre: string;
     apellido: string;
     estado: boolean;
-    celular: number;
+    celular: string;
 }

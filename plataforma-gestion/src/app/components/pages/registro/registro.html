@@ -3,20 +3,24 @@
 <div class="container">
     <h1>Registro de datos</h1>
     <div class="form">
-        <form action="">
+        <form #formulario="ngForm" (ngSubmit)="registrar()">
             <label for="nombre">Nombre: </label>
-            <input type="text" name="nombre" id="nombre" placeholder="Nombres" [(ngModel)]="nombre">
+            <input type="text" name="nombre" placeholder="Nombres" [(ngModel)]="nombre" required>
 
             <label for="apellido">Apellido: </label>
-            <input type="text" name="apellido" id="apellido" placeholder="Apellidos" [(ngModel)]="apellido">
+            <input type="text" name="apellido" placeholder="Apellidos" [(ngModel)]="apellido" required>
 
-            <label for="correo">Correo: </label>
-            <input type="text" name="correo" id="correo" placeholder="ejemplo@mail.com" [(ngModel)]="correo">
+            <label for="estado">Estado: </label>
+            <input type="checkbox" name="estado" [(ngModel)]="estado">
 
             <label for="celular">Celular: </label>
-            <input type="text" name="celular" id="celular" placeholder="999 999 999" [(ngModel)]="celular">
+            <input type="text" placeholder="999 999 999" [(ngModel)]="celular"name="celular" inputmode="numeric" pattern="[0-9]{9}" minlength="9" maxlength="9" required>
 
-            <input type="submit" value="Registrar" id="enviar" [disabled]="!nombre || !apellido || !correo || !celular">
+            @if(formulario.invalid){
+                <p>Formulario inválido, datos incorrectos</p>
+            }
+            <input type="submit" value="Registrar" id="enviar" [disabled]="formulario.invalid">
+            
         </form>
     </div>
 </div>

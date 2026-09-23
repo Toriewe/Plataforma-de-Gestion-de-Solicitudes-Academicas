@@ -1,39 +1,61 @@
 {
-    "datos": [
-        {
-            "id": 1,
-            "nombre": "Claudia",
-            "apellido": "Gómez",
-            "estado": true,
-            "celular": 987654321
-        },
-        {
-            "id": 2,
-            "nombre": "Carlos",
-            "apellido": "Ramírez",
-            "estado": false,
-            "celular": 912345678
-        },
-        {
-            "id": 3,
-            "nombre": "Andrea",
-            "apellido": "Torres",
-            "estado": false,
-            "celular": 965432187
-        },
-        {
-            "id": 4,
-            "nombre": "Mateo",
-            "apellido": "Flores",
-            "estado": true,
-            "celular": 934567812
-        },
-        {
-            "id": 5,
-            "nombre": "Lucas",
-            "apellido": "Vela",
-            "estado": false,
-            "celular": 965238745
-        }
-    ]
+  "datos": [
+    {
+      "id": "1",
+      "nombre": "Claudia",
+      "apellido": "Gómez",
+      "estado": true,
+      "celular": "987654321"
+    },
+    {
+      "id": "2",
+      "nombre": "Carlos",
+      "apellido": "Ramírez",
+      "estado": false,
+      "celular": "912345678"
+    },
+    {
+      "id": "3",
+      "nombre": "Andrea",
+      "apellido": "Torres",
+      "estado": false,
+      "celular": "965432187"
+    },
+    {
+      "id": "4",
+      "nombre": "Mateo",
+      "apellido": "Flores",
+      "estado": true,
+      "celular": "934567812"
+    },
+    {
+      "id": "5",
+      "nombre": "Lucas",
+      "apellido": "Vela",
+      "estado": false,
+      "celular": "965238745"
+    },
+    {
+      "nombre": "Alex",
+      "apellido": "Nieto",
+      "celular": "956862453",
+      "estado": true,
+      "id": "HnleFyicdzM"
+    },
+    {
+      "nombre": "Jose",
+      "apellido": "Martinez",
+      "celular": "985265450",
+      "estado": false,
+      "id": "9rzviKmVmUM"
+    },
+    {
+      "nombre": "Profe",
+      "apellido": "Hola",
+      "celular": "999999999",
+      "estado": false,
+      "id": "2cfhG6aXIhc"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

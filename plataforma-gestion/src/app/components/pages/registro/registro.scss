@@ -33,9 +33,21 @@ input:focus {
     transition: 0.3s;
 }
 
+input:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+p {
+    text-align: center;
+    font-size: 11px;
+    font-style: italic;
+    color: #a30005;
+}
+
 #enviar {
     align-self: center;
-    width: 130px;
+    width: 70%;
     height: 35px;
     font-weight: bold;
 }

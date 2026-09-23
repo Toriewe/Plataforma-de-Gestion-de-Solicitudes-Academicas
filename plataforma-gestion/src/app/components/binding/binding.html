@@ -1,9 +1,0 @@
-<section>
-    <input [(ngModel)]="productoNom">
-</section>
-
-<button [disabled]="!productoNom" (click)="seleccionar()">Seleccionar</button>
-
-@if(seleccion){
-    <p>Producto seleccionado: {{ productoNom }}</p>
-}
