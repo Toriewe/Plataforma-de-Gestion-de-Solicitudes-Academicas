@@ -55,6 +55,13 @@
       "celular": "999999999",
       "estado": false,
       "id": "2cfhG6aXIhc"
+    },
+    {
+      "nombre": "Miguel",
+      "apellido": "Mar",
+      "estado": true,
+      "celular": "951753846",
+      "id": "Mq_h87dHqzU"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

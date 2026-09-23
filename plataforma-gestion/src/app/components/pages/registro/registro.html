@@ -3,23 +3,23 @@
 <div class="container">
     <h1>Registro de datos</h1>
     <div class="form">
-        <form #formulario="ngForm" (ngSubmit)="registrar()">
+        <form [formGroup]="formulario" (ngSubmit)="registrar()">
             <label for="nombre">Nombre: </label>
-            <input type="text" name="nombre" placeholder="Nombres" [(ngModel)]="nombre" required>
+            <input type="text" id="nombre" formControlName="nombre">
 
             <label for="apellido">Apellido: </label>
-            <input type="text" name="apellido" placeholder="Apellidos" [(ngModel)]="apellido" required>
+            <input type="text" id="apellido" formControlName="apellido">
 
             <label for="estado">Estado: </label>
-            <input type="checkbox" name="estado" [(ngModel)]="estado">
+            <input type="checkbox" formControlName="estado">
 
             <label for="celular">Celular: </label>
-            <input type="text" placeholder="999 999 999" [(ngModel)]="celular"name="celular" inputmode="numeric" pattern="[0-9]{9}" minlength="9" maxlength="9" required>
+            <input type="text" id="celular" formControlName="celular" inputmode="numeric" maxlength="9">
 
             @if(formulario.invalid){
                 <p>Formulario inválido, datos incorrectos</p>
             }
-            <input type="submit" value="Registrar" id="enviar" [disabled]="formulario.invalid">
+            <input type="submit" id="enviar" value="Registrar" [disabled]="formulario.invalid">
             
         </form>
     </div>
