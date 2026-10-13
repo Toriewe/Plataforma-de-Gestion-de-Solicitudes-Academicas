@@ -3,6 +3,8 @@ import { Header } from '../../header/header';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Solicitud } from '../../../servicios/solicitud';
 import { Router } from '@angular/router';
+import { Datos } from '../../../modelos/datos';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-registro',
@@ -40,6 +42,8 @@ export class Registro {
     estado: this.formulario.value.estado!,
     celular: this.formulario.value.celular!
   };
+
+  
 
   this.solicitud.guardarDatos(nuevoDato).subscribe({
     next: (respuesta) => {
