@@ -1,28 +1,38 @@
 <app-header></app-header>
 
 <div class="container">
-    <h1>Solicitudes académicas</h1>
-    <div class="tabla">
-        <table>
-            <tr>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Estado</th>
-                <th>Celular</th>
-            </tr>
-            @for (dato of datos; track dato.id){
-            <tr>
-                <td>{{ dato.nombre }}</td>
-                <td>{{ dato.apellido }}</td>
-                <td>@if (dato.estado) {
-                    Activo
-                    } @else {
-                    Inactivo
-                    }
-                </td>
-                <td>{{ dato.celular }}</td>
-            </tr>
+  <h1>Solicitudes académicas</h1>
+  <div class="tabla">
+    <table>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Estado</th>
+        <th>Celular</th>
+        <th>Acciones</th>
+      </tr>
+      @for (dato of datos; track dato.id) {
+        <tr>
+          <td>{{ dato.nombre }}</td>
+          <td>{{ dato.apellido }}</td>
+          <td>
+            @if (dato.estado) {
+              Activo
+            } @else {
+              Inactivo
             }
-        </table>
-    </div>
+          </td>
+          <td>{{ dato.celular }}</td>
+          <td>
+            @if (dato.estado) {
+              <button (click)="desactivar(dato._id!)">Desactivar</button>
+              <button [routerLink]="['/actualizar', dato._id]">Editar</button>
+            } @else {
+              <span>Inactivo</span>
+            }
+          </td>
+        </tr>
+      }
+    </table>
+  </div>
 </div>

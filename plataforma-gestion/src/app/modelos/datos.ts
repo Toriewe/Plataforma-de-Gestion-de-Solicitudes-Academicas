@@ -1,5 +1,5 @@
 export interface Datos {
-    _id?: number | string;
+    _id?: string;
     nombre: string;
     apellido: string;
     estado: boolean;
