@@ -16,15 +16,38 @@ th, td {
 }
 
 th {
-    background-color: #630045;
+    background-color: #49366B;
     color: white;
 }
 
 tr:nth-child(odd) {
-    background-color: #ffe2ff;
+    background-color: #F0E8FA;
     transition: 1s;
 }
 
 td {
     text-align: center;
+}
+
+#editar {
+    background-color: #DDA8CE;
+    color: white;
+}
+
+#editar:hover {
+    background-color: #C47BB2;
+    color: white;
+    transition: 0.3s;
+}
+
+#borrar {
+    background-color: #B42342;
+    color: white;
+    margin-left: 5px;
+}
+
+#borrar:hover {
+    background-color: #8F1933;
+    color: white;
+    transition: 0.3s;
 }

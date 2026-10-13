@@ -25,8 +25,8 @@
           <td>{{ dato.celular }}</td>
           <td>
             @if (dato.estado) {
-              <button (click)="desactivar(dato._id!)">Desactivar</button>
-              <button [routerLink]="['/actualizar', dato._id]">Editar</button>
+              <button id="editar" [routerLink]="['/actualizar', dato._id]">Editar</button>
+              <button id="borrar" (click)="desactivar(dato._id!)">Desactivar</button>
             } @else {
               <span>Inactivo</span>
             }

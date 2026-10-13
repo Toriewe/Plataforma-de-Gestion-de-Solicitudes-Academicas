@@ -6,7 +6,7 @@
     align-items: center;
     padding: 2rem;
     margin: 0;
-    background: linear-gradient(135deg, #d6d6ba, #d1c23d);
+    background: linear-gradient(135deg, #FAF7FF, #D8CDE7);
 }
 
 .form {
@@ -26,7 +26,7 @@ input {
 }
 
 input:focus {
-    border-color: #744d68;
+    border-color: #8065A8;
     outline: none;
     box-shadow: 0 0 5px rgba(139, 92, 246, 0.3);
     transition: 0.3s;
@@ -46,15 +46,17 @@ p {
 
 #enviar {
     align-self: center;
+    background-color: #C5B4DC;
+    border-color: #654A91;
     width: 70%;
     height: 35px;
     font-weight: bold;
 }
 
 #enviar:not(:disabled):hover {
-    background-color: #3c1330;
-    border: 1px solid #3c1330;
-    color: #e2c7e6;
+    background-color: #654A91;
+    border: 1px solid #654A91;
+    color: white;
     transition: 0.3s;
 }
 

@@ -16,7 +16,7 @@ export class Registro {
     nombre: new FormControl('', Validators.required),
     apellido: new FormControl('', Validators.required),
     celular: new FormControl('', [Validators.required, Validators.pattern('[0-9]{9}')]),
-    estado: new FormControl(false),
+    estado: new FormControl(true),
   });
 
   constructor(

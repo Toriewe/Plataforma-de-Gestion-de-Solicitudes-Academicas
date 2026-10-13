@@ -1,5 +1,5 @@
 .header {
-    background: #91623d;
+    background: #8065A8;
     color: white;
     padding: 1rem 2rem;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
@@ -27,7 +27,7 @@
     width: 52px;
     height: 52px;
     border-radius: 12px;
-    background: #b36205;
+    background: #49366B;
     color: #faf5f8;
     font-weight: bold;
     font-size: 0.9rem;
@@ -40,13 +40,13 @@
 
 .brand p {
     margin: 0.25rem 0 0;
-    color: #cfc205;
+    color: #F0E8FA;
     font-size: 0.85rem;
 }
 
 .home-button {
     padding: 0.75rem 1.5rem;
-    border: 1px solid #e2dce1;
+    border: 1px solid #cfc3e4;
     border-radius: 8px;
     background: transparent;
     color: white;
@@ -56,6 +56,6 @@
 }
 
 .home-button:hover {
-    background: #dad4d8;
-    color: #3c1330;
+    background: #cfc3e4;
+    color: #252039;
 }
