@@ -1,11 +1,13 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "API Backend para Plataforma de Gestion de Solicitudes Academicas",
+  "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "test": "node --test test/**/*.test.js",
+    "test:live": "node src/scripts/test-crud-live.js",
+    "seed": "node src/scripts/seed.js"
   },
   "keywords": [],
   "author": "",

@@ -1,9 +1,10 @@
-
 const mongoose = require('mongoose');
 
-async function conectarDB() {
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/solicitudes_academicas';
+
+async function conectarDB(uri = MONGODB_URI) {
     try {
-        await mongoose.connect('mongodb://127.0.0.1:27017/solicitudes_academicas');
+        await mongoose.connect(uri);
 
         console.log('MongoDB conectado correctamente');
     } catch (error) {

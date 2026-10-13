@@ -1,10 +1,9 @@
-
 const express = require('express');
 const conectarDB = require('./database');
 const solicitudesRoutes = require('./routes/solicitudes.routes');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Middleware para interpretar solicitudes JSON
 app.use(express.json());
@@ -31,9 +30,13 @@ app.use((req, res) => {
 async function iniciarServidor() {
     await conectarDB();
 
-    app.listen(PORT, () => {
+    return app.listen(PORT, () => {
         console.log(`Servidor ejecutandose en http://localhost:${PORT}`);
     });
 }
 
-iniciarServidor();
+if (require.main === module) {
+    iniciarServidor();
+}
+
+module.exports = { app, iniciarServidor };

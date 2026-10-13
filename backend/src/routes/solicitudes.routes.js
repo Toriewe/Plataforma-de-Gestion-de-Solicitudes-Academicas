@@ -1,100 +1,23 @@
 const express = require('express');
 const router = express.Router();
-const Solicitud = require('../models/Solicitud');
+const solicitudController = require('../controllers/solicitud.controller');
 
-// GET: consultar todas las solicitudes
-router.get('/', async (req, res) => {
-    try {
-        const solicitudes = await Solicitud.find();
-        res.json(solicitudes);
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ mensaje: 'Error al consultar solicitudes' });
-    }
-});
+// GET: consultar todas las solicitudes (con soporte de filtros opcionales por query)
+router.get('/', (req, res) => solicitudController.obtenerTodas(req, res));
 
 // GET: consultar una solicitud por ID
-router.get('/:id', async (req, res) => {
-    try {
-        const solicitud = await Solicitud.findById(req.params.id);
-
-        if (!solicitud) {
-            return res.status(404).json({ mensaje: 'Solicitud no encontrada' });
-        }
-
-        res.json(solicitud);
-    } catch (error) {
-        res.status(400).json({ mensaje: 'ID de solicitud no valido' });
-    }
-});
+router.get('/:id', (req, res) => solicitudController.obtenerPorId(req, res));
 
 // POST: crear una solicitud
-router.post('/', async (req, res) => {
-    try {
-        const { estudiante, curso, descripcion } = req.body;
+router.post('/', (req, res) => solicitudController.crear(req, res));
 
-        if (!estudiante || !curso || !descripcion) {
-            return res.status(400).json({
-                mensaje: 'Estudiante, curso y descripcion son obligatorios'
-            });
-        }
+// PUT: actualizar una solicitud completa
+router.put('/:id', (req, res) => solicitudController.actualizar(req, res));
 
-        const nuevaSolicitud = await Solicitud.create({
-            estudiante,
-            curso,
-            descripcion
-        });
-
-        res.status(201).json(nuevaSolicitud);
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ mensaje: 'Error al crear la solicitud' });
-    }
-});
-
-// PUT: actualizar una solicitud
-router.put('/:id', async (req, res) => {
-    try {
-        const { estudiante, curso, descripcion, estado } = req.body;
-
-        if (!estudiante || !curso || !descripcion || !estado) {
-            return res.status(400).json({
-                mensaje: 'Todos los campos son obligatorios para actualizar'
-            });
-        }
-
-        const solicitud = await Solicitud.findByIdAndUpdate(
-            req.params.id,
-            { estudiante, curso, descripcion, estado },
-            { new: true, runValidators: true }
-        );
-
-        if (!solicitud) {
-            return res.status(404).json({ mensaje: 'Solicitud no encontrada' });
-        }
-
-        res.json(solicitud);
-    } catch (error) {
-        console.error(error);
-        res.status(400).json({
-            mensaje: 'No se pudo actualizar la solicitud. Verifica el ID y los datos.'
-        });
-    }
-});
+// PATCH: actualizar parcialmente una solicitud
+router.patch('/:id', (req, res) => solicitudController.actualizarParcial(req, res));
 
 // DELETE: eliminar una solicitud
-router.delete('/:id', async (req, res) => {
-    try {
-        const solicitud = await Solicitud.findByIdAndDelete(req.params.id);
-
-        if (!solicitud) {
-            return res.status(404).json({ mensaje: 'Solicitud no encontrada' });
-        }
-
-        res.json({ mensaje: 'Solicitud eliminada correctamente' });
-    } catch (error) {
-        res.status(400).json({ mensaje: 'ID de solicitud no valido' });
-    }
-});
+router.delete('/:id', (req, res) => solicitudController.eliminar(req, res));
 
 module.exports = router;

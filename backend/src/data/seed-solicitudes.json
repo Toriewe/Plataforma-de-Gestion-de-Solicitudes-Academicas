@@ -1,0 +1,56 @@
+[
+  {
+    "_id": "6accc0236aa665a732ffe454",
+    "estudiante": "Estudiante de prueba",
+    "curso": "Programacion Web II",
+    "descripcion": "Registro de ejemplo para entrega del backend",
+    "estado": "Pendiente",
+    "createdAt": "2026-10-12T11:10:27.627Z",
+    "updatedAt": "2026-10-12T11:10:27.627Z"
+  },
+  {
+    "_id": "6accc11c6aa665a732ffe455",
+    "estudiante": "Nicolas",
+    "curso": "Programacion Web II",
+    "descripcion": "Solicitud de ejemplo para Nicolas",
+    "estado": "Pendiente",
+    "createdAt": "2026-10-12T11:14:36.540Z",
+    "updatedAt": "2026-10-12T11:14:36.540Z"
+  },
+  {
+    "_id": "6accc11c6aa665a732ffe456",
+    "estudiante": "Heyshin",
+    "curso": "Programacion Web II",
+    "descripcion": "Solicitud de ejemplo para Heyshin",
+    "estado": "Pendiente",
+    "createdAt": "2026-10-12T11:14:36.547Z",
+    "updatedAt": "2026-10-12T11:14:36.547Z"
+  },
+  {
+    "_id": "6accc11c6aa665a732ffe457",
+    "estudiante": "Dominga",
+    "curso": "Base de Datos",
+    "descripcion": "Solicitud de ejemplo para Dominga",
+    "estado": "Pendiente",
+    "createdAt": "2026-10-12T11:14:36.551Z",
+    "updatedAt": "2026-10-12T11:14:36.551Z"
+  },
+  {
+    "_id": "6accc11c6aa665a732ffe458",
+    "estudiante": "Hilario",
+    "curso": "Desarrollo de Software",
+    "descripcion": "Solicitud de ejemplo para Hilario",
+    "estado": "Pendiente",
+    "createdAt": "2026-10-12T11:14:36.554Z",
+    "updatedAt": "2026-10-12T11:14:36.554Z"
+  },
+  {
+    "_id": "6accc11c6aa665a732ffe459",
+    "estudiante": "Marcos",
+    "curso": "Base de Datos",
+    "descripcion": "Solicitud de ejemplo para Marcos",
+    "estado": "Pendiente",
+    "createdAt": "2026-10-12T11:14:36.558Z",
+    "updatedAt": "2026-10-12T11:14:36.558Z"
+  }
+]
