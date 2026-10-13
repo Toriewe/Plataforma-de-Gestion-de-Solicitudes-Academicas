@@ -53,7 +53,7 @@ class SolicitudController {
    */
   async crear(req, res) {
     try {
-      const { nombre, apellido, celular, estado } = req.body;
+      const { nombre, apellido, estado } = req.body;
 
       if (!nombre || !apellido || !celular) {
         return res.status(400).json({
