@@ -3,42 +3,39 @@ const mongoose = require('mongoose');
 const ESTADOS_VALIDOS = ['Pendiente', 'En revision', 'Aprobada', 'Rechazada'];
 
 const solicitudSchema = new mongoose.Schema({
-    estudiante: {
+    nombre: {
         type: String,
-        required: [true, 'El nombre del estudiante es obligatorio'],
+        required: [true, 'El nombre es obligatorio'],
         trim: true,
-        minlength: [3, 'El nombre del estudiante debe tener al menos 3 caracteres'],
-        maxlength: [100, 'El nombre del estudiante no puede exceder los 100 caracteres']
+        minlength: [3, 'El nombre debe tener al menos 3 caracteres'],
+        maxlength: [100, 'El nombre no puede exceder los 100 caracteres']
     },
-    curso: {
+
+    apellido: {
         type: String,
-        required: [true, 'El nombre del curso es obligatorio'],
+        required: [true, 'El apellido es obligatorio'],
         trim: true,
-        minlength: [3, 'El curso debe tener al menos 3 caracteres'],
-        maxlength: [100, 'El curso no puede exceder los 100 caracteres']
+        minlength: [3, 'El apellido debe tener al menos 3 caracteres'],
+        maxlength: [100, 'El apellido no puede exceder los 100 caracteres']
     },
-    descripcion: {
+
+    celular: {
         type: String,
-        required: [true, 'La descripcion de la solicitud es obligatoria'],
+        required: [true, 'El celular es obligatorio'],
         trim: true,
-        minlength: [5, 'La descripcion debe tener al menos 5 caracteres'],
-        maxlength: [1000, 'La descripcion no puede exceder los 1000 caracteres']
+        match: [/^\d{9}$/, 'El celular debe contener exactamente 9 dígitos']
     },
+
     estado: {
-        type: String,
-        enum: {
-            values: ESTADOS_VALIDOS,
-            message: '"{VALUE}" no es un estado valido. Estados permitidos: ' + ESTADOS_VALIDOS.join(', ')
-        },
-        default: 'Pendiente',
-        trim: true
+        type: Boolean,
+        default: true
     }
+
 }, {
     timestamps: true,
-    collection: 'solicituds' // Mantiene compatibilidad exacta con la coleccion generada por Mongoose y el dump BSON
+    collection: 'solicituds'
 });
 
 const Solicitud = mongoose.model('Solicitud', solicitudSchema);
 
 module.exports = Solicitud;
-module.exports.ESTADOS_VALIDOS = ESTADOS_VALIDOS;

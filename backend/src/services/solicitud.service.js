@@ -1,80 +1,79 @@
+
 const mongoose = require('mongoose');
 const Solicitud = require('../models/Solicitud');
 
 class SolicitudService {
-    /**
-     * Consulta todas las solicitudes en MongoDB, permitiendo filtros opcionales.
-     * @param {Object} filtros - Filtros opcionales (estado, curso, estudiante)
-     * @returns {Promise<Array>} Lista de documentos de solicitudes
-     */
+
+    // GET: Listar solicitudes con filtros opcionales
     async listarSolicitudes(filtros = {}) {
         const query = {};
 
-        if (filtros.estado) {
-            query.estado = filtros.estado;
+        if (filtros.estado !== undefined &&
+            filtros.estado !== '') {
+            if (!['true', 'false', true, false].includes(filtros.estado)) {
+                const error = new Error('Estado no válido');
+                error.statusCode = 400;
+                throw error;
+            }
+
+            query.estado = filtros.estado === true ||
+                           filtros.estado === 'true';
         }
 
-        if (filtros.curso) {
-            query.curso = { $regex: filtros.curso, $options: 'i' };
+        if (filtros.nombre) {
+            query.nombre = {
+                $regex: filtros.nombre,
+                $options: 'i'
+            };
         }
 
-        if (filtros.estudiante) {
-            query.estudiante = { $regex: filtros.estudiante, $options: 'i' };
+        if (filtros.apellido) {
+            query.apellido = {
+                $regex: filtros.apellido,
+                $options: 'i'
+            };
         }
 
-        return await Solicitud.find(query).sort({ createdAt: -1 });
+        return await Solicitud.find(query)
+            .sort({ createdAt: -1 });
     }
 
-    /**
-     * Consulta una solicitud por su ID de MongoDB.
-     * @param {string} id - ObjectId de la solicitud
-     * @returns {Promise<Object|null>} Documento de la solicitud o null si no existe
-     */
+    // GET: Obtener solicitud por ID
     async obtenerSolicitudPorId(id) {
-        if (!mongoose.Types.ObjectId.isValid(id)) {
-            const error = new Error('ID de solicitud no valido');
-            error.statusCode = 400;
-            throw error;
-        }
+        this.validarId(id);
 
         return await Solicitud.findById(id);
     }
 
-    /**
-     * Crea una nueva solicitud persistente en MongoDB.
-     * Aplica automáticamente las validaciones del esquema de Mongoose.
-     * @param {Object} datos - Datos de la solicitud ({ estudiante, curso, descripcion, estado })
-     * @returns {Promise<Object>} Documento creado
-     */
+    // POST: Crear solicitud
     async crearSolicitud(datos) {
-        const { estudiante, curso, descripcion, estado } = datos;
+        const { nombre, apellido, celular, estado } = datos;
 
-        const dataToCreate = { estudiante, curso, descripcion };
-        if (estado) {
-            dataToCreate.estado = estado;
+        const nuevaSolicitud = {
+            nombre,
+            apellido,
+            celular
+        };
+
+        if (estado !== undefined) {
+            nuevaSolicitud.estado = estado;
         }
 
-        return await Solicitud.create(dataToCreate);
+        return await Solicitud.create(nuevaSolicitud);
     }
 
-    /**
-     * Actualiza una solicitud existente en MongoDB.
-     * @param {string} id - ObjectId de la solicitud
-     * @param {Object} datos - Campos a actualizar
-     * @param {boolean} validarCompletitud - Si es true, requiere todos los campos (para PUT)
-     * @returns {Promise<Object|null>} Documento actualizado o null si no se encuentra
-     */
+    // PUT / PATCH: Actualizar solicitud
     async actualizarSolicitud(id, datos, validarCompletitud = false) {
-        if (!mongoose.Types.ObjectId.isValid(id)) {
-            const error = new Error('ID de solicitud no valido');
-            error.statusCode = 400;
-            throw error;
-        }
+        this.validarId(id);
 
         if (validarCompletitud) {
-            const { estudiante, curso, descripcion, estado } = datos;
-            if (!estudiante || !curso || !descripcion || !estado) {
-                const error = new Error('Todos los campos son obligatorios para actualizar (estudiante, curso, descripcion, estado)');
+            const { nombre, apellido, celular, estado } = datos;
+
+            if (!nombre || !apellido || !celular ||
+                typeof estado !== 'boolean') {
+                const error = new Error(
+                    'Nombre, apellido, celular y estado son obligatorios'
+                );
                 error.statusCode = 400;
                 throw error;
             }
@@ -83,33 +82,41 @@ class SolicitudService {
         return await Solicitud.findByIdAndUpdate(
             id,
             datos,
-            { new: true, runValidators: true }
+            {
+                new: true,
+                runValidators: true
+            }
         );
     }
 
-    /**
-     * Elimina una solicitud existente en MongoDB.
-     * @param {string} id - ObjectId de la solicitud
-     * @returns {Promise<Object|null>} Documento eliminado o null si no existia
-     */
+    // DELETE: Eliminación lógica
     async eliminarSolicitud(id) {
+        this.validarId(id);
+
+        return await Solicitud.findByIdAndUpdate(
+            id,
+            { estado: false },
+            {
+                new: true,
+                runValidators: true
+            }
+        );
+    }
+
+    // Contar solicitudes
+    async contarSolicitudes(filtros = {}) {
+        return await Solicitud.countDocuments(filtros);
+    }
+
+    // Validar ID de MongoDB
+    validarId(id) {
         if (!mongoose.Types.ObjectId.isValid(id)) {
-            const error = new Error('ID de solicitud no valido');
+            const error = new Error('ID de solicitud no válido');
             error.statusCode = 400;
             throw error;
         }
-
-        return await Solicitud.findByIdAndDelete(id);
-    }
-
-    /**
-     * Cuenta el total de solicitudes en la base de datos.
-     * @param {Object} filtros - Filtros opcionales
-     * @returns {Promise<number>} Conteo de documentos
-     */
-    async contarSolicitudes(filtros = {}) {
-        return await Solicitud.countDocuments(filtros);
     }
 }
 
 module.exports = new SolicitudService();
+
