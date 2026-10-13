@@ -25,6 +25,8 @@ export class Solicitudes implements OnInit {
   obtenerSolicitudes() {
     this.solicitudDatos.obtenerDatos().subscribe({
       next: (valores) => {
+        console.log('Datos recibidos:', valores);
+
         this.datos = valores;
       },
       error: (error) => {

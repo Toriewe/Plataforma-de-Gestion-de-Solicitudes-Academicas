@@ -7,7 +7,7 @@ class SolicitudController {
    */
   async obtenerTodas(req, res) {
     try {
-      const { estado, nombre, apellido } = req.query;
+      const { estado, nombre, apellido, celular } = req.query;
       const solicitudes = await solicitudService.listarSolicitudes({
         estado,
         nombre,

@@ -11,7 +11,7 @@
         <th>Celular</th>
         <th>Acciones</th>
       </tr>
-      @for (dato of datos; track dato.id) {
+      @for (dato of datos; track dato._id) {
         <tr>
           <td>{{ dato.nombre }}</td>
           <td>{{ dato.apellido }}</td>

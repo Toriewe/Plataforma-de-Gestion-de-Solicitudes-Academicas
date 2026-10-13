@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Header } from '../../header/header';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Solicitud } from '../../../servicios/solicitud';
 
 @Component({
   selector: 'app-actualizar',
   standalone: true,
-  imports: [Header],
+  imports: [Header, ReactiveFormsModule],
   templateUrl: './actualizar.html',
   styleUrl: './actualizar.scss',
 })

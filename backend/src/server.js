@@ -1,12 +1,23 @@
 const express = require('express');
+const cors = require('cors');
 const conectarDB = require('./database');
 const solicitudesRoutes = require('./routes/solicitudes.routes');
+
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware para interpretar solicitudes JSON
 app.use(express.json());
+
+// Permitir peticiones desde Angular
+app.use(cors({
+    origin: 'http://localhost:4200'
+}));
+
+app.use(express.json());
+
 
 // Ruta principal
 app.get('/', (req, res) => {
@@ -18,6 +29,7 @@ app.get('/', (req, res) => {
 
 // Rutas del CRUD de solicitudes
 app.use('/api/solicitudes', solicitudesRoutes);
+
 
 // Middleware para rutas inexistentes
 app.use((req, res) => {

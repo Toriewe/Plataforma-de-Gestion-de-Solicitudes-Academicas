@@ -34,6 +34,13 @@ class SolicitudService {
             };
         }
 
+        if (filtros.celular) {
+            query.celular = {
+                $regex: filtros.celular,
+                $options: 'i'
+            };
+        }
+
         return await Solicitud.find(query)
             .sort({ createdAt: -1 });
     }
