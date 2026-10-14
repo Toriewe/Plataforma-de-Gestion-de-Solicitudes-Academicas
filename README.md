@@ -5,15 +5,17 @@
 > **Evaluación:** PA2 — Proceso de Aprendizaje 2 (Sesión 7)  
 > **Equipo:** Plataforma de Gestión de Solicitudes Académicas  
 
----
-
 ## 1. Integrantes y Roles
-Integrante Rol en PA2 Aporte Principal
-Frontend Angular Desarrollo de interfaz cliente, componentes reactivos, formularios y consumo de API.
-DIEGO FERNANDO SALVA PUERTA Integrante 1 — Backend & CRUD Inicial Configuración inicial del servidor Node.js/Express, conexión base a MongoDB y definición de endpoints CRUD iniciales.
-ANGEL (angel_ali2005@hotmail.com) Integrante 2 — Modelos y Persistencia Implementación y completitud de modelos Mongoose (Solicitud, Usuario), esquemas con tipado estricto, campos obligatorios, validaciones (minlength, maxlength, enum, trim), capa de persistencia desacoplada (SolicitudService), formateo de errores en controlador, script de datos semilla y suite de pruebas unitarias.
-Integrante 3 — Validaciones y Notificaciones Implementación de validaciones con mensajes de aviso para orientar al usuario, incorporación de notificaciones al eliminar registros y desarrollo conjunto de la funcionalidad para reactivar registros desactivados.
-FABIÁN MARCELO DÁVILA HERRERA Integrante 4 — Interfaz y Reactivación de Registros Desarrollo conjunto de mejoras en la interfaz, incorporación de avisos de validación, mensajes de confirmación al eliminar registros, implementación del botón de reactivación y pruebas funcionales de las mejoras realizadas.
+
+| Integrante | Rol en PA2 | Aporte Principal |
+|---|---|---|
+| **CLAUDIA BEATRIZ GUILLEN BACA** | Frontend Angular | Desarrollo de interfaz cliente, componentes reactivos, formularios y consumo de API. |
+| **DIEGO FERNANDO SALVA PUERTA** | Integrante 1 — Backend & CRUD Inicial | Configuración inicial del servidor Node.js/Express, conexión base a MongoDB y definición de endpoints CRUD iniciales. |
+| **ANGEL (angel_ali2005@hotmail.com)** | Integrante 2 — Modelos y Persistencia | Implementación y completitud de modelos Mongoose (`Solicitud`, `Usuario`), esquemas con tipado estricto, campos obligatorios, validaciones (`minlength`, `maxlength`, `enum`, `trim`), capa de persistencia desacoplada (`SolicitudService`), formateo de errores en controlador, script de datos semilla y suite de pruebas unitarias. |
+| **ISAAC CLAUDIO SALDAÑA** | Integrante 3 — Validaciones y Notificaciones | Implementación de validaciones con mensajes de aviso para orientar al usuario, notificaciones al eliminar registros y desarrollo conjunto de la funcionalidad para reactivar registros desactivados. |
+| **FABIÁN MARCELO DÁVILA HERRERA** | Integrante 4 — Interfaz y Reactivación de Registros | Desarrollo conjunto de mejoras en la interfaz, incorporación de avisos de validación, mensajes de confirmación al eliminar registros, implementación del botón de reactivación y pruebas funcionales de las mejoras realizadas. |
+
+---
 
 ## 2. Descripción y Objetivo
 
