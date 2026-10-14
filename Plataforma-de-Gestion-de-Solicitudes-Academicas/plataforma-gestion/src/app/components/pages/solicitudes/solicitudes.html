@@ -1,0 +1,54 @@
+<app-header></app-header>
+
+<div class="container">
+  <h1>Solicitudes académicas</h1>
+
+  @if (alerta) {
+    <div class="alerta alerta-{{ alerta.tipo }} aviso" role="status">
+      <span>{{ alerta.texto }}</span>
+      <button type="button" class="cerrar" (click)="cerrarAlerta()" aria-label="Cerrar aviso">×</button>
+    </div>
+  }
+
+  <div class="tabla">
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Estado</th>
+          <th>Celular</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (dato of datos; track dato._id) {
+          <tr [class.inactivo]="!dato.estado">
+            <td>{{ dato.nombre }}</td>
+            <td>{{ dato.apellido }}</td>
+            <td>
+              @if (dato.estado) {
+                <span class="badge badge-activo">Activo</span>
+              } @else {
+                <span class="badge badge-inactivo">Registro eliminado</span>
+              }
+            </td>
+            <td>{{ dato.celular }}</td>
+            <td>
+              @if (dato.estado) {
+                <button id="editar" [routerLink]="['/actualizar', dato._id]">Editar</button>
+                <button id="borrar" (click)="desactivar(dato._id!)">Eliminar</button>
+              } @else {
+                <button id="reactivar" (click)="reactivar(dato._id!)">Reactivar</button>
+              }
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="5" class="vacio">No hay registros todavía.</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

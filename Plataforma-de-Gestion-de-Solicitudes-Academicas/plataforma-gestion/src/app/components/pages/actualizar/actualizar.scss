@@ -1,0 +1,67 @@
+.container {
+    min-height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    margin: 0;
+    background: linear-gradient(135deg, #FAF7FF, #D8CDE7);
+}
+
+.form {
+    width: 100%;
+    max-width: 480px;
+    box-sizing: border-box;
+    padding: 1.5rem 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(73, 54, 107, 0.15);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+input {
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.check {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 20px;
+}
+
+.check input {
+    margin: 0;
+    height: auto;
+}
+
+#enviar {
+    align-self: center;
+    background-color: #C5B4DC;
+    border: 1px solid #654A91;
+    width: 70%;
+    height: 38px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#enviar:not(:disabled):hover {
+    background-color: #654A91;
+    color: white;
+    transition: 0.3s;
+}
+
+#enviar:disabled {
+    cursor: not-allowed;
+}

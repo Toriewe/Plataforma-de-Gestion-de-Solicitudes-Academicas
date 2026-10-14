@@ -1,0 +1,65 @@
+<app-header></app-header>
+
+<div class="container">
+    <h1>Registro de datos</h1>
+
+    <div class="form">
+        <!-- Aviso general al intentar enviar con errores -->
+        @if (intentoEnvio && formulario.invalid) {
+            <div class="alerta alerta-error" role="alert">
+                No se pudo registrar: revisa los campos marcados en rojo.
+            </div>
+        }
+
+        <!-- Errores que devuelve el servidor -->
+        @if (erroresServidor.length > 0) {
+            <div class="alerta alerta-error" role="alert">
+                El servidor rechazó el registro:
+                <ul>
+                    @for (mensaje of erroresServidor; track mensaje) {
+                        <li>{{ mensaje }}</li>
+                    }
+                </ul>
+            </div>
+        }
+
+        <form [formGroup]="formulario" (ngSubmit)="registrar()" novalidate>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" formControlName="nombre">
+            @if (formulario.controls.nombre.touched) {
+                @if (formulario.controls.nombre.hasError('required')) {
+                    <p class="error-message">El nombre es obligatorio.</p>
+                } @else if (formulario.controls.nombre.hasError('minlength')) {
+                    <p class="error-message">El nombre debe tener como mínimo 3 caracteres.</p>
+                }
+            }
+
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" formControlName="apellido">
+            @if (formulario.controls.apellido.touched) {
+                @if (formulario.controls.apellido.hasError('required')) {
+                    <p class="error-message">El apellido es obligatorio.</p>
+                } @else if (formulario.controls.apellido.hasError('minlength')) {
+                    <p class="error-message">El apellido debe tener como mínimo 3 caracteres.</p>
+                }
+            }
+
+            <label for="celular">Celular:</label>
+            <input type="text" id="celular" formControlName="celular" inputmode="numeric" maxlength="9">
+            @if (formulario.controls.celular.touched) {
+                @if (formulario.controls.celular.hasError('required')) {
+                    <p class="error-message">El celular es obligatorio.</p>
+                } @else if (formulario.controls.celular.hasError('pattern')) {
+                    <p class="error-message">El celular debe tener exactamente 9 dígitos.</p>
+                }
+            }
+
+            <label class="check" for="estado">
+                <input type="checkbox" id="estado" formControlName="estado">
+                Activo
+            </label>
+
+            <input type="submit" id="enviar" [value]="guardando ? 'Guardando...' : 'Registrar'" [disabled]="guardando">
+        </form>
+    </div>
+</div>

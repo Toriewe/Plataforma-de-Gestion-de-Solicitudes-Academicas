@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background: #FAF7FF;
+    color: #162033;
+}
+
+h1 {
+    color: #252039;
+}
+
+/* ---------- Botones ---------- */
+button {
+    padding: 0.55rem 0.9rem;
+    border: 0;
+    border-radius: 8px;
+    background-color: #C5B4DC;
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+/* ---------- Inputs ---------- */
+input {
+    height: 35px;
+    padding: 0px 8px;
+    border: 2px solid #916c86ac;
+    border-radius: 5px;
+}
+
+input:focus {
+    border-color: #8065A8;
+    outline: none;
+    box-shadow: 0 0 5px rgba(139, 92, 246, 0.3);
+    transition: 0.3s;
+}
+
+/* Campo con error: solo después de que el usuario lo tocó o intentó enviar */
+input.ng-invalid.ng-touched {
+    border-color: #a30005;
+    background-color: #fff5f5;
+}
+
+/* ---------- Mensajes de error junto a un campo ---------- */
+.error-message {
+    margin: -14px 0 16px;
+    text-align: left;
+    font-size: 0.8rem;
+    font-style: normal;
+    color: #a30005;
+}
+
+/* ---------- Alertas (éxito / error / info) ---------- */
+.alerta {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 0 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border-left: 5px solid;
+    font-size: 0.9rem;
+    font-style: normal;
+    text-align: left;
+}
+
+.alerta ul {
+    margin: 0.25rem 0 0;
+    padding-left: 1.2rem;
+}
+
+.alerta-exito {
+    background: #d1e7dd;
+    border-color: #198754;
+    color: #0f5132;
+}
+
+.alerta-error {
+    background: #f8d7da;
+    border-color: #a30005;
+    color: #842029;
+}
+
+.alerta-info {
+    background: #fff3cd;
+    border-color: #d39e00;
+    color: #664d03;
+}
