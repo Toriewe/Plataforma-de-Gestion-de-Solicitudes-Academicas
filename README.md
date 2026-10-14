@@ -140,6 +140,9 @@ Servidor ejecutandose en http://localhost:3000
 * **Control de Versiones:** Commits estructurados en la rama `feat/modelos-persistencia` respetando el trabajo previo del equipo.
 
 ---
+equipo.
+
+---
 
 ## 7. Matriz de Participación
 
@@ -148,6 +151,8 @@ Servidor ejecutandose en http://localhost:3000
 | **CLAUDIA BEATRIZ GUILLEN BACA** | Alta | Media | Media | Pendiente | Desarrollo inicial del frontend Angular, componentes y servicios de consumo de datos. |
 | **DIEGO FERNANDO SALVA PUERTA** | Alta | Alta | Media | Pendiente | Configuración base del backend Express, primer CRUD y conexión inicial con MongoDB. |
 | **ANGEL** | Alta | Alta | Alta | Pendiente | Completitud de modelos Mongoose (`Solicitud`, `Usuario`), validaciones estrictas, capa `SolicitudService` y `SolicitudController`, script de datos semilla, tests unitarios automatizados y actualización de documentación PA2. |
+| **ISAAC CLAUDIO SALDAÑA** | Media | Baja | Baja | Pendiente | Participación en la implementación de validaciones con avisos, notificaciones de registros eliminados y botón para reactivar registros desactivados. |
+| **FABIÁN MARCELO DÁVILA HERRERA** | Media | Baja | Baja | Pendiente | Colaboración en las mejoras de interfaz, incorporación de avisos de validación, mensajes de eliminación y funcionalidad de reactivación de registros. |
 
 ---
 
@@ -155,7 +160,8 @@ Servidor ejecutandose en http://localhost:3000
 
 **Video público de YouTube:** [PEGAR AQUÍ EL ENLACE]
 
-*Todos los integrantes participarán en la exposición con sus cámaras prendidas, explicando el procedimiento, la arquitectura de la solución, los modelos de Mongoose, la persistencia en MongoDB y las decisiones técnicas adoptadas.*
+*Todos los integrantes participarán en la exposición con sus cámaras prendidas, explicando el procedimiento, la arquitectura de la solución, los modelos de Mongoose, la persistencia en MongoDB, las validaciones implementadas, las notificaciones de eliminación, la funcionalidad de reactivación de registros y las decisiones técnicas adoptadas.*
+
 
 ---
 
