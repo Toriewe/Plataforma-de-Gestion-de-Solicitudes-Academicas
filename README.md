@@ -158,7 +158,7 @@ equipo.
 
 ## 8. Video de Exposición
 
-**Video público de YouTube:** [PEGAR AQUÍ EL ENLACE]
+**Video público de YouTube:** https://youtu.be/T5fSM89rWvk
 
 *Todos los integrantes participarán en la exposición con sus cámaras prendidas, explicando el procedimiento, la arquitectura de la solución, los modelos de Mongoose, la persistencia en MongoDB, las validaciones implementadas, las notificaciones de eliminación, la funcionalidad de reactivación de registros y las decisiones técnicas adoptadas.*
 
