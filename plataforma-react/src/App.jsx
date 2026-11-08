@@ -1,95 +1,137 @@
+
 import { useEffect, useMemo, useState } from 'react';
+import { Routes, Route, NavLink } from 'react-router-dom';
+
 import FiltroSolicitudes from './components/FiltroSolicitudes.jsx';
 import SolicitudForm from './components/SolicitudForm.jsx';
 import SolicitudList from './components/SolicitudList.jsx';
-import { solicitudesIniciales } from './data/solicitudes.js';
+import { useSolicitudes } from './context/SolicitudesContext.jsx';
+import ResumenSolicitudes from './components/ResumenSolicitudes.jsx';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  cambiarFiltro,
+  restablecerFiltro,
+} from './redux/filtroSlice.js';
 
 function App() {
-  const [solicitudes, setSolicitudes] = useState([]);
-  const [filtro, setFiltro] = useState('Todas');
-  const [cargando, setCargando] = useState(true);
+  // Estado global proporcionado por Context API
+  const { solicitudes, agregarSolicitud } = useSolicitudes();
   const [mensaje, setMensaje] = useState('');
 
-  useEffect(() => {
-    const temporizador = window.setTimeout(() => {
-      setSolicitudes(solicitudesIniciales);
-      setCargando(false);
-    }, 700);
+// Consultamos el filtro almacenado en Redux
+const filtro = useSelector(
+  (state) => state.filtro.estadoSeleccionado
+);
 
-    return () => window.clearTimeout(temporizador);
-  }, []);
-
+// Permite enviar acciones a Redux
+const dispatch = useDispatch();
+  // Filtrar solicitudes
   const solicitudesFiltradas = useMemo(() => {
-    if (filtro === 'Todas') {
-      return solicitudes;
-    }
+    if (filtro === 'Todas') return solicitudes;
 
-    return solicitudes.filter((solicitud) => solicitud.estado === filtro);
+    return solicitudes.filter(
+      (solicitud) => solicitud.estado === filtro
+    );
   }, [filtro, solicitudes]);
 
-  function agregarSolicitud(nuevaSolicitud) {
-    setSolicitudes((solicitudesAnteriores) => [
-      nuevaSolicitud,
-      ...solicitudesAnteriores,
-    ]);
-    setFiltro('Todas');
+  // Registrar utilizando Context API
+  function registrarSolicitud(nuevaSolicitud) {
+    agregarSolicitud(nuevaSolicitud);
+    dispatch(restablecerFiltro());
     setMensaje('La solicitud se registró correctamente.');
   }
 
+  // Ocultar mensaje después de 3 segundos
   useEffect(() => {
-    if (!mensaje) {
-      return undefined;
-    }
+    if (!mensaje) return;
 
-    const temporizador = window.setTimeout(() => setMensaje(''), 3000);
-    return () => window.clearTimeout(temporizador);
+    const temporizador = setTimeout(() => {
+      setMensaje('');
+    }, 3000);
+
+    return () => clearTimeout(temporizador);
   }, [mensaje]);
 
   return (
     <div className="aplicacion">
       <header className="encabezado">
         <div className="contenedor encabezado__contenido">
-          
           <div>
             <strong>Gestión Académica</strong>
             <p>Plataforma de solicitudes</p>
           </div>
+
+          <nav className="menu-navegacion" aria-label="Navegación principal">
+  <NavLink to="/" end>Inicio</NavLink>
+  <NavLink to="/registro">Registro</NavLink>
+  <NavLink to="/solicitudes">Solicitudes</NavLink>
+</nav>
         </div>
       </header>
 
       <main className="contenedor contenido-principal">
-        <section className="presentacion">
-          <p className="etiqueta">Portal del estudiante</p>
-          <h1>Gestiona tus solicitudes académicas</h1>
-          <p>Registra una solicitud y consulta su estado desde un solo lugar.</p>
-        </section>
-
-        {mensaje && <div className="mensaje-exito" role="status">{mensaje}</div>}
-
-        <section className="panel">
-          <div className="panel__titulo">
-            <p className="paso">Nueva solicitud</p>
-            <h2>Registra un trámite</h2>
+        {mensaje && (
+          <div className="mensaje-exito" role="status">
+            {mensaje}
           </div>
-          <SolicitudForm onAgregar={agregarSolicitud} />
-        </section>
+        )}
 
-        <section className="seccion-solicitudes">
-          <FiltroSolicitudes
-            filtro={filtro}
-            onCambiarFiltro={setFiltro}
-            total={solicitudesFiltradas.length}
+        <Routes>
+          <Route
+  path="/"
+  element={
+    <>
+      <section className="presentacion">
+        <p className="etiqueta">Portal del estudiante</p>
+        <h1>Gestiona tus solicitudes académicas</h1>
+        <p>
+          Registra solicitudes y consulta su estado
+          desde un solo lugar.
+        </p>
+      </section>
+
+      <ResumenSolicitudes />
+    </>
+  }
+/>
+
+          <Route
+            path="/registro"
+            element={
+              <section className="panel">
+                <div className="panel__titulo">
+                  <p className="paso">Nueva solicitud</p>
+                  <h2>Registra un trámite</h2>
+                </div>
+
+                <SolicitudForm onAgregar={registrarSolicitud} />
+              </section>
+            }
           />
 
-          {cargando ? (
-            <div className="cargando" role="status">
-              <span className="cargando__indicador" />
-              Cargando solicitudes...
-            </div>
-          ) : (
-            <SolicitudList solicitudes={solicitudesFiltradas} />
-          )}
-        </section>
+          <Route
+            path="/solicitudes"
+            element={
+              <section className="seccion-solicitudes">
+                <FiltroSolicitudes
+                  filtro={filtro}
+                  onCambiarFiltro={(nuevoFiltro) =>
+                  dispatch(cambiarFiltro(nuevoFiltro))}
+                  total={solicitudesFiltradas.length}
+                />
+
+                <SolicitudList
+                  solicitudes={solicitudesFiltradas}
+                />
+              </section>
+            }
+          />
+
+          <Route
+            path="*"
+            element={<h2>Página no encontrada</h2>}
+          />
+        </Routes>
       </main>
     </div>
   );
