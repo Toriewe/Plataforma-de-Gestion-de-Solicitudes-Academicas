@@ -132,9 +132,3 @@ Sustituir el marcador por el enlace del video público de PA3 con participación
 - Context API facilitó compartir las solicitudes entre el registro, el listado y el resumen.
 - Redux Toolkit permitió implementar y explicar un flujo básico de acciones, reducer y Store para el filtro.
 - La separación de responsabilidades facilita mantener el proyecto y justificar las decisiones técnicas de la evaluación.
-12. Pendientes de entrega
-- Confirmar los nombres completos, roles y evidencias individuales de participación PA3.
-- Incorporar capturas reales en evidencias/pa3/ y sus enlaces en este README.
-- Reemplazar el marcador del video por el enlace público.
-- Subir y verificar en GitHub la rama de PA3 y, si corresponde a la entrega del equipo, integrarla en main.
-Fecha de preparación de esta documentación: 3 de noviembre de 2026.
