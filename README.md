@@ -1,4 +1,4 @@
-Plataforma de Gestión de Solicitudes Académicas — PA3
+**Plataforma de Gestión de Solicitudes Académicas — PA3**
 Curso: Programación Web II · Código: 30690 · Institución: ISIL
 Evaluación: PA3 — Periodo 202620
 Repositorio: https://github.com/Toriewe/Plataforma-de-Gestion-de-Solicitudes-Academicas
@@ -6,17 +6,13 @@ Repositorio: https://github.com/Toriewe/Plataforma-de-Gestion-de-Solicitudes-Aca
 Integrante	Participación documentada anteriormente (PA2)	Participación específica en PA3
 Claudia Beatriz Guillen Baca	Desarrollo frontend Angular, componentes y formularios	Por confirmar con el equipo
 Diego Fernando Salva Puerta	Configuración inicial del backend Node.js/Express y CRUD	Desarrollo e integración de la SPA React, React Router, Context API, Redux y pruebas funcionales, según el trabajo realizado en esta etapa
-Ángel — apellido completo por confirmar	Modelos Mongoose, persistencia y pruebas	Por confirmar con el equipo
+Ángel, Modelos Mongoose, persistencia y pruebas	Por confirmar con el equipo
 Isaac Claudio Saldaña	Validaciones, notificaciones y reactivación de registros	Por confirmar con el equipo
 Fabián Marcelo Dávila Herrera	Mejoras de interfaz, avisos y reactivación de registros	Por confirmar con el equipo
-
-
-Antes de entregar: completar nombre y apellido de Ángel, verificar los aportes concretos de cada integrante en PA3 y actualizar la columna de participación. Los aportes históricos de PA2 no se presentan como trabajos realizados en PA3.
 
 2. Descripción del proyecto
 La Plataforma de Gestión de Solicitudes Académicas permite registrar, consultar y organizar solicitudes de estudiantes desde una aplicación de página única (SPA). Para la PA3 se implementó una nueva interfaz en React, independiente de las etapas previas realizadas con Angular y Node.js/MongoDB.
 
-Esta entrega emplea datos locales y simulados. No necesita iniciar el backend ni conectarse a MongoDB para demostrar los requisitos evaluados.
 3. Objetivo
 Construir una SPA funcional con JSX, componentes reutilizables, Hooks (useState y useEffect), navegación con React Router, estado compartido mediante Context API y un flujo básico con Redux Toolkit; además, comparar ambas estrategias de gestión del estado.
 4. Desarrollo y solución propuesta
